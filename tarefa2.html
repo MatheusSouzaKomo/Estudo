@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contador de alimentos</title>
+    </head>
+    <body>
+        <h1> Bem vindo ao site de contagem de alimentos</h1>
+        <p id="valor">0</p>
+        <button id="btn-adicionar">Adicionar</button>
+        <button id="btn-subtrair">Remover</button>
+        <script>
+            
+            let numero = 0;
+
+            document.getElementById("btn-adicionar").addEventListener("click", function() {
+                numero = numero + 1;
+                document.getElementById("valor").textContent = numero;  
+            });
+        
+            document.getElementById("btn-subtrair").addEventListener("click", function() {
+                if (numero > 0) {
+                    numero = numero - 1;
+                    document.getElementById("valor").textContent = numero;
+                }
+                if (numero === 0) {
+                    document.getElementById("valor").textContent = numero;
+                    alert("O contador não pode ser negativo!");
+                }
+            });
+
+        </script>
+    </body>
+</html>

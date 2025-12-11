@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tarefa 3</title>
+        <body>
+            <h1> Tarefa 3 - Adicionar produtos no estoque</h1>
+            <input id="nome-produto">
+            <ul id="lista-produtos"></ul>
+            <button id="btn-cadastrar">Adicionar produtos</button>
+            
+            <script>
+
+                document.getElementById("btn-cadastrar").addEventListener("click", function() {
+
+                    // Variáveis, nome, como nome do produto (input) e item, como item na lista (li)
+                    // .value é necessário para pegar o valor do input
+                    let nome = document.getElementById("nome-produto").value; // Deve estar dentro do listener, visto que o nome do produto será atualizado todo clique
+                    let item = document.createElement("li"); // Deve ficar dentro do listener, pois assim cria um novo item a cada clique
+                    item.textContent = nome + " — Quantidade: 0" // Saída da resposta 
+                    document.getElementById("lista-produtos").appendChild(item); // Adiciona o item na lista (ul) Nesse caso, a lista de produtos é o pai, e o item é o filho
+                    document.getElementById("nome-produto").value = ""; // Limpa o input após adicionar o produto
+                });
+    
+            </script>
+        </body>
+    </head>
+</html>
