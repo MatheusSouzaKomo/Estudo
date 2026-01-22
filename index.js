@@ -18,8 +18,8 @@ console.log(`Your first name is ${FirstName} and your last name is ${LastName}`)
 const adicionar = document.getElementById("myButton");
 const input = document.getElementById("myInput");
 const remover = document.getElementById("myButton2");
-const lista = document.getElementById()
-
+const contar = document.getElementById("myButton3");
+const input2 = document.getElementById("myInput2");
 
 adicionar.addEventListener("click", function() {
     let texto = input.value;
@@ -33,6 +33,17 @@ adicionar.addEventListener("click", function() {
         }
     });
 
+contar.addEventListener("click", function(){
+    let quantidade = document.querySelectorAll("#myList li").length;
+    window.alert(`Você tem ${quantidade} comidas favoritas.`)
+});
+
 remover.addEventListener("click", function() {
-    
+    let quantidade = document.querySelectorAll("#myList li").length;
+    let itens = document.querySelectorAll("#myList li");
+ if (quantidade <= 0) {
+    window.alert(`Você não tem comidas favoritas para serem removidas.`);
+ } else {
+    document.getElementById("myList").removeChild(itens[itens.length - 1]);
+ }
 });
