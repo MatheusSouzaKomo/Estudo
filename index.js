@@ -1,5 +1,4 @@
-
-
+/*
 // window.alert("Hello World"); // Mensagem de alerta
 
 document.getElementById("myH1").textContent = "Texto 1" // Altera os textos no id.
@@ -14,6 +13,7 @@ let LastName = "Alváro";
 
 console.log(`You are ${age} years old`); // Log no inspecionar. 
 console.log(`Your first name is ${FirstName} and your last name is ${LastName}`);
+*/
 
 const adicionar = document.getElementById("myButton");
 const input = document.getElementById("myInput");
@@ -25,12 +25,33 @@ adicionar.addEventListener("click", function() {
     let texto = input.value;
         if (texto !== "") {
             let item = document.createElement("li");
-            item.textContent = texto;
+            let textoSpan = document.createElement("span")
+            let deletar = document.createElement("button");
+            let editar = document.createElement("button");
+            textoSpan.textContent = texto;
+            deletar.textContent = "X";
+            editar.textContent = "Editar";
+            
+            deletar.addEventListener("click", function(){
+                item.remove();
+            });
+
+            editar.addEventListener("click", function(){
+                let novoTexto = prompt("Digite o novo valor:")
+                if (novoTexto == "" || novoTexto === null){
+                    window.alert("O item não foi alterado");
+                }else {
+                    textoSpan.textContent = novoTexto;
+                }
+            });
+            item.appendChild(textoSpan);
+            item.appendChild(deletar);
+            item.appendChild(editar);
             document.getElementById("myList").appendChild(item);
             document.getElementById("input").value = "";
         } else {
             window.alert("Por favor, digite um nome!");
-        }
+        } 
     });
 
 contar.addEventListener("click", function(){
